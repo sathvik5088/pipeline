@@ -1,0 +1,13 @@
+pipeline {
+    agent {
+        label 'db-serv'
+    }
+
+    stages {
+        stage('Ping Test') {
+            steps {
+               sh 'ping amazon.com'
+            }
+        }
+    }
+}

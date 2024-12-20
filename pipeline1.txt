@@ -1,0 +1,22 @@
+pipeline {
+    agent {
+        label 'app-node'
+    }
+
+    tools {
+        maven 'maven'
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Sathvik5088/tribes.git'
+            }
+        }
+        stage('Clean') {
+            steps {
+                sh 'mvn clean'
+            }
+        }
+    }
+}
